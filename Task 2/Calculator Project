@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600&display=swap" rel="stylesheet">	<title>Document</title>
+	<style type="text/css">
+		body,h1,h2,p,a{
+			margin: 0;
+			font-family: 'Raleway', sans-serif;
+			text-decoration: none;
+		}
+		.container{
+			width: 100%;
+			max-width: 1116px;
+			background-color: #fff;
+			margin: auto;
+			left: 0;
+			right: 0;
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			padding-top: 17px;
+			gap: 34px;
+		}
+		.calculator{
+			background-color: #F4F7FE;
+			width: 542px;
+			height: 442px;
+			border-radius: 20px;
+			padding-left: 27px;
+			padding-right: 27px;
+			padding-top: 25px;
+			box-sizing: border-box;
+			
+		}
+		.perMounth{
+			width: 100%;
+			background-color: #fff;
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			padding: 5px 5px 5px 24px;
+			box-sizing: border-box;
+			border-radius: 30px;
+			margin-bottom: 11px;
+		}
+		.perMounth__text{
+			font-style: normal;
+			font-weight: 400;
+			font-size: 16px;
+			outline: none;
+		}
+
+		.perMounth__value{
+			font-style: normal;
+			font-weight: 400;
+			font-size: 16px;
+			color: #fff;
+			background-color: #2B6BFF;
+			border: none;
+			padding: 13px 0;
+			width: 100px;
+			text-align: center;
+			border-radius: 25px;
+		}
+    
+		.perMounth__value::placeholder{
+			color: #fff;
+			font-style: normal;
+			font-weight: 400;
+			font-size: 16px;
+			text-align: center;
+		}
+		.result{
+			height: 442px;
+			padding-top: 43px;
+			display: flex;
+			flex-direction: column;
+			justify-content: space-between;
+			align-items: center;
+			box-sizing: border-box;
+		}
+
+    .switch {
+			display: inline-block;
+			position: relative;
+			width: 488px;
+			height: 56px;
+			padding: 5px;
+		}
+
+		.switch__text, .switch__text__Rev{
+			z-index: 666;
+			width: 50%;
+			text-align: center;
+			transition: 1.1s;
+		}
+
+		.switch__input {
+			height: 0;
+			width: 0;
+			opacity: 0;
+		}
+
+		.switch__slider{
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			position: absolute;
+			cursor: pointer;
+			top: 0;
+			left: 0;
+			bottom: 0;
+			right: 0;
+			height: 56px;
+			border-radius: 30px;
+			background-color: white;
+			transition: 1s;
+		}
+
+		.switch__slider::before {
+			content: "";
+			position: absolute;
+			cursor: pointer;
+			left: 5px;
+			bottom: 5px;
+			height: 46px;
+			width: 49%;
+			border-radius: 25px;
+			background-color: #2B6Bff;
+			transition: 1s;
+		}
+
+		.switch__input:checked + .switch__slider {
+			background-color: white;
+		}
+
+		.switch__input:checked + .switch__slider::before {
+			transform: translateX(100%);
+		}
+
+		.switch__input + .switch__slider > .switch__text{
+			color: white;
+		}
+
+		.switch__input:checked + .switch__slider > .switch__text{
+			color: black;
+
+		}
+
+		.switch__input + .switch__slider > .switch__text__Rev{
+			color: black;
+
+		}
+
+		.switch__input:checked + .switch__slider > .switch__text__Rev{
+			color: white;
+		}
+    
+		.result__flex{
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+		}
+		.result__title{
+			font-style: normal;
+			font-weight: 500;
+			font-size: 22px;
+			width: 100%;
+			max-width: 243px;
+		}
+		.result__value{
+			font-style: normal;
+			font-weight: 600;
+			font-size: 22px;
+			width: 241px;
+			text-align: center;
+			padding: 29px 0px;
+			border: 4px solid #2B6BFF;
+			border-radius: 30px;
+		}
+		 .result__info{
+			background: #F4F7FE;
+			border-radius: 20px;
+			padding: 26px;
+		}
+		.result__info__title{
+			font-style: normal;
+			font-weight: 500;
+			font-size: 22px;
+			margin-bottom: 30px;
+		}
+		.result__info__text{
+			font-style: normal;
+			font-weight: 400;
+			font-size: 16px;
+			width: 100%;
+			max-width: 488px;
+			margin-bottom: 19px;
+		}
+		 
+
+
+
+
+
+	</style>
+</head>
+<body>
+	<div class="container">
+
+
+		<div class="calculator">
+			<label class="container__calculator__label" for="">Организационно-правовая форма:</label>
+
+			<label class="switch" >
+				<input type="checkbox" class="switch__input" id="switch1">
+				<span class="switch__slider" >
+					<p class="switch__text" >ИП</p>
+					<p class="switch__text__Rev">ТОО</p>
+				</span>
+			</label>
+			<label class="container__calculator__label" for="">Организационно-правовая форма:</label>
+			<label class="switch" >
+				<input type="checkbox" class="switch__input" id="switch2">
+				<span class="switch__slider" >
+					<p class="switch__text">УРН</p>
+					<p class="switch__text__Rev">ОУР</p>
+				</span>
+			</label>
+			<div class="perMounth">
+				<label for="perMounth__value" class="perMounth__text">Количество документов в месяц</label>
+				<input type="text" placeholder="0" class="perMounth__value" id="perMounth__docs">
+			</div>
+			<div class="perMounth">
+				<label for="perMounth__value" class="perMounth__text">Количество сотрудников в месяц</label>
+				<input type="text" placeholder="0" class="perMounth__value" id="perMounth__people">
+			</div>	
+			<div class="dropdown">
+
+			</div>
+			
+		</div>
+		<div class="result">
+			<div class="result__flex">
+				<p class="result__title">Ваш оптимальный тариф почти готов</p>
+				<p class="result__value">0 Т</p>
+			</div>
+			<div class="result__info">
+				<p class="result__info__title">Обратите внимание!</p>
+				<p class="result__info__text">Приобретая пакет, Вы экономите 25% от стоимости услуг в  обычном тарифе с индивидуальным расчётом!
+				</p>
+				<p class="result__info__text">Стоимость подготовки налоговой отчетности будет добавлена с учетом применяемого режима налогообложения.
+				</p>
+				<p class="result__info__text">Для плательщиков НДС сумма услуг повышается на 30%.</p>
+			</div>
+	
+		</div>
+	</div>
+	
+
+
+
+<script type="text/javascript">
+
+const switch1 =  document.querySelector("#switch1"),
+	switch2 =  document.querySelector("#switch2"),
+	docs = document.querySelector("#perMounth__docs"),   
+	people = document.querySelector("#perMounth__people"),   
+	resultValueBlock = document.querySelector('.result__value')
+var step1firstInput = false,
+	step1secondInput = false,
+	resultValue = 0, 
+	resultDocs = 0,
+	resultPeople = 0
+
+
+function setFirstStepValue (){
+	if(step1firstInput == true && step1secondInput == true){
+		resultValue = 75000
+		resultValueBlock.innerHTML = resultValue + resultDocs + resultPeople +" Т"
+	} else if(step1firstInput == false && step1secondInput == false){
+		resultValue = 50000
+		resultValueBlock.innerHTML = resultValue + resultDocs + resultPeople +" Т"
+	}
+	else if(step1firstInput == true && step1secondInput == false){
+		resultValue = 50000
+		resultValueBlock.innerHTML = resultValue + resultDocs + resultPeople +" Т"
+	}else if(step1firstInput == false && step1secondInput == true){
+		resultValue = 75000
+		resultValueBlock.innerHTML = resultValue + resultDocs + resultPeople +" Т"
+	}else{
+		console.log('error')
+	}
+}
+switch1.addEventListener("change", function () {
+    if (this.checked) {
+		step1firstInput = true
+	}else{
+		step1firstInput = false
+	}
+	setFirstStepValue ()
+})
+switch2.addEventListener("change", function () {
+    if (this.checked) {
+		step1secondInput = true
+	}else{
+		step1secondInput = false
+	}
+	setFirstStepValue ()
+})
+
+const inputHandlerDocs = function(e) {
+	resultDocs =  Number(e.target.value * 1000)
+	resultValueBlock.innerHTML = resultValue + resultDocs + resultPeople +" Т"
+}
+
+docs.addEventListener('input', inputHandlerDocs)
+docs.addEventListener('propertychange', inputHandlerDocs)
+
+
+const inputHandlerPeople = function(e) {
+	resultPeople =  Number(e.target.value * 3000)
+	resultValueBlock.innerHTML = resultValue + resultDocs + resultPeople +" Т"
+}
+people.addEventListener('input', inputHandlerPeople)
+people.addEventListener('propertychange', inputHandlerPeople)
+
+</script>
+
+</body>
+</html>
